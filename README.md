@@ -1,2 +1,2 @@
-# Mybatits
+# Mybaits
 Mybatits Learning
