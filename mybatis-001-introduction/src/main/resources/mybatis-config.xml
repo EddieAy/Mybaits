@@ -19,6 +19,8 @@
                 <property name="password" value="zera"/>
             </dataSource>
         </environment>
+
+
     </environments>
     <mappers>
         <!--sql映射文件创建好之后，需要将该文件路径配置到这里-->

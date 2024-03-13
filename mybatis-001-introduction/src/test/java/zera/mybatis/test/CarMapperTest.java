@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import zera.utils.SqlSessionUtil;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -33,5 +34,14 @@ public class CarMapperTest {
                 sqlSession.close();
             }
         }
+    }
+
+    @Test
+    public void testInsertCarByUtil(){
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        int count = sqlSession.insert("insertCar");
+        System.out.println(count);
+        sqlSession.commit();
+        sqlSession.close();
     }
 }
