@@ -10,8 +10,10 @@ import zera.bank.service.AccountService;
 import zera.bank.util.SqlSessionUtil;
 
 public class AccountServiceImpl implements AccountService {
-    AccountDao accountDao = new AccountDaoImpl();
+//    AccountDao accountDao = new AccountDaoImpl();
+    AccountDao accountDao = SqlSessionUtil.openSession().getMapper(AccountDao.class);
     @Override
+
     public void transfer(String fromActNum, String toActNum, double money) throws MoneyNotEnoughException, TransferFailException {
 
         SqlSession sqlSession = SqlSessionUtil.openSession();
@@ -29,8 +31,8 @@ public class AccountServiceImpl implements AccountService {
 
         int count1 = accountDao.updateByActNum(fromAccount);
 
-        String s = null;
-        s.toString();
+//        String s = null;
+//        s.toString();
 
         int count2 = accountDao.updateByActNum(toAccount);
         if(count1 + count2 != 2){

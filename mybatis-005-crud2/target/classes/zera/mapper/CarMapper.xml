@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace先随意写一个-->
+<mapper namespace="zera.mapper.CarMapper">
+    <insert id="insert">insert into t_car(id,carNum,brand,guidePrice,produceTime,carType)
+                        values(null,#{carNum},#{brand},#{guidePrice},#{produceTime},#{carType})
+                        </insert>
+    <delete id="deleteById">
+        delete from t_car where id = #{id}
+    </delete>
+    <update id="update">
+        update t_car set
+                         carNum = #{carNum},
+                         brand = #{brand},
+                         guidePrice = #{guidePrice},
+                         produceTime = #{produceTime},
+                         carType = #{carType}
+        where id = #{id}
+    </update>
+    <select id="selectById">
+        select * from t_car where id = #{id}
+    </select>
+    <select id="selectAll">
+        select * from t_car
+    </select>
+    
+    <select id="selectByCarType" resultType="car">
+        select * from t_car where carType = #{carType}
+--         select * from t_car where carType = ${carType}
+-- select * from t_car where carType = ? select * from t_car where carType = elec
+    </select>
+</mapper>
