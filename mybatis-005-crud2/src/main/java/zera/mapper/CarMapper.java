@@ -5,6 +5,8 @@ import zera.pojo.Car;
 import java.util.List;
 
 public interface CarMapper {
+
+    int insertCarUseGeneratedKeys(Car car);
     int insert(Car car);
 
     int deleteById(Long id);

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace先随意写一个-->
+<mapper namespace="zera.mapper.StudentMapper">
+    <select id="selectByNameAndSex" resultType="zera.pojo.Student">
+        select * from t_student where name = #{arg0} and sex = #{arg1}
+    </select>
+
+    <select id="selectByNameAndSex2" resultType="zera.pojo.Student">
+        select * from t_student where name = #{name} and sex = #{sex}
+    </select>
+</mapper>

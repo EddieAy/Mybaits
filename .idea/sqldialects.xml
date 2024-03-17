@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/8cbf5017-e33a-4dc0-8349-8a8003fab92a/console_3.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/createTable.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/insert.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/mybatis-002-crud/src/main/resources/CarMapper.xml" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/mybatis-004-web/src/main/resources/AccountMapper.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/mybatis-005-crud2/src/main/resources/zera/mapper/CarMapper.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/mybatis-007-param/src/main/resources/zera/mapper/StudentMapper.xml" dialect="GenericSQL" />
   </component>
 </project>

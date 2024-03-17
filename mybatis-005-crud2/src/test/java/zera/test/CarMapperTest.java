@@ -9,6 +9,18 @@ import zera.util.SqlSessionUtil;
 import java.util.List;
 
 public class CarMapperTest {
+
+    @Test
+    public void testInsertCarUseGeneratedKeys(){
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        CarMapper mapper = sqlSession.getMapper(CarMapper.class);
+        Car c1 = new Car(null, "423", "BMW", 32.0, "2010-10-1", "foil");
+        mapper.insertCarUseGeneratedKeys(c1);
+        System.out.println(c1);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
     @Test
     public void testInsert(){
         SqlSession sqlSession = SqlSessionUtil.openSession();

@@ -4,9 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace先随意写一个-->
 <mapper namespace="zera.mapper.CarMapper">
-    <insert id="insert">insert into t_car(id,carNum,brand,guidePrice,produceTime,carType)
-                        values(null,#{carNum},#{brand},#{guidePrice},#{produceTime},#{carType})
-                        </insert>
+
+    <insert id="insertCarUseGeneratedKeys" useGeneratedKeys="true" keyProperty="id">
+        insert into t_car
+        values(null,#{carNum},#{brand},#{guidePrice},#{produceTime},#{carType})
+    </insert>
+
+    <insert id="insert">
+        insert into t_car(id,carNum,brand,guidePrice,produceTime,carType)
+        values(null,#{carNum},#{brand},#{guidePrice},#{produceTime},#{carType})
+    </insert>
     <delete id="deleteById">
         delete from t_car where id = #{id}
     </delete>
