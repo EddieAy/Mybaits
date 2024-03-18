@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace先随意写一个-->
+<mapper namespace="zera.mapper.StudentMapper">
+
+    <resultMap id="studentResultMap" type="Student">
+        <id property="stuId" column="stu_id"/>
+        <result property="stuName" column="stu_name"/>
+        <result property="clazz.classId" column="class_id"/>
+        <result property="clazz.className" column="class_name"/>
+    </resultMap>
+    <select id="selectById" resultMap="studentResultMap">
+        select s.stu_id,s.stu_name,c.class_id,c.class_name
+            from t_stu s left join t_class c on s.class_id = c.class_id
+        where s.stu_id = #{stuId}
+    </select>
+
+    <resultMap id="studentResultMapAssociation" type="Student">
+        <id property="stuId" column="stu_id"/>
+        <result property="stuName" column="stu_name"/>
+        <association property="clazz" javaType="Clazz">
+            <id property="classId" column="class_id"/>
+            <result property="className" column="class_name"/>
+        </association>
+    </resultMap>
+    <select id="selectByAssociation" resultMap="studentResultMapAssociation">
+        select s.stu_id,s.stu_name,c.class_id,c.class_name
+        from t_stu s left join t_class c on s.class_id = c.class_id
+        where s.stu_id = #{stuId}
+    </select>
+
+</mapper>

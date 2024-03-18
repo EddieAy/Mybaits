@@ -11,6 +11,8 @@
         <module name="mybatis-007-param" />
         <module name="mybatis-005-crud2" />
         <module name="mybatis-001-introduction" />
+        <module name="mybatis-008-DynamicSql" />
+        <module name="mybatis-009-AdvancedMapping" />
         <module name="mybatis-002-crud" />
         <module name="mybatis-003-configuration" />
       </profile>

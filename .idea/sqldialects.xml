@@ -8,5 +8,7 @@
     <file url="file://$PROJECT_DIR$/mybatis-004-web/src/main/resources/AccountMapper.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/mybatis-005-crud2/src/main/resources/zera/mapper/CarMapper.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/mybatis-007-param/src/main/resources/zera/mapper/StudentMapper.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/mybatis-008-DynamicSql/src/main/resources/zera/mapper/CarMapper.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/mybatis-009-AdvancedMapping/src/main/resources/zera/mapper/StudentMapper.xml" dialect="GenericSQL" />
   </component>
 </project>

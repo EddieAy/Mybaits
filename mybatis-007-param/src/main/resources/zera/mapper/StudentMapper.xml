@@ -11,4 +11,29 @@
     <select id="selectByNameAndSex2" resultType="zera.pojo.Student">
         select * from t_student where name = #{name} and sex = #{sex}
     </select>
+
+    <select id="selectAllListMap" resultType="map">
+        select * from t_student
+    </select>
+
+    <select id="selectAllMapMap" resultType="map">
+        select * from t_student
+    </select>
+
+    <resultMap id="studentResultMap" type="Student">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="age" column="age" />
+        <result property="height" column="height" />
+        <result property="date" column="birth_date" />
+        <result property="sex" column="sex" />
+
+    </resultMap>
+    <select id="selectAllByResultMap" resultMap="studentResultMap">
+        select * from t_student
+    </select>
+
+    <select id="selectAllByCamelCase" resultType="student">
+        select * from t_student
+    </select>
 </mapper>

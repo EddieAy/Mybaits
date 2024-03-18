@@ -15,5 +15,9 @@
     <file url="file://$PROJECT_DIR$/mybatis-005-crud2/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mybatis-007-param/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mybatis-007-param/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-008-DynamicSql/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-008-DynamicSql/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-009-AdvancedMapping/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-009-AdvancedMapping/src/main/resources" charset="UTF-8" />
   </component>
 </project>
