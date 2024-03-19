@@ -1,10 +1,20 @@
 package zera.pojo;
 
-public class Clazz {
+import java.io.Serializable;
+import java.util.List;
+
+public class Clazz implements Serializable {
     private Integer classId;
     private String className;
 
-    public Clazz() {
+    private List<Student> stus;
+
+    public List<Student> getStus() {
+        return stus;
+    }
+
+    public void setStus(List<Student> stus) {
+        this.stus = stus;
     }
 
     @Override
@@ -12,7 +22,11 @@ public class Clazz {
         return "Clazz{" +
                 "classId=" + classId +
                 ", className='" + className + '\'' +
+                ", stus=" + stus +
                 '}';
+    }
+
+    public Clazz() {
     }
 
     public Integer getClassId() {

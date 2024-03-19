@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/mybatis-007-param/pom.xml" />
         <option value="$PROJECT_DIR$/mybatis-008-DynamicSql/pom.xml" />
         <option value="$PROJECT_DIR$/mybatis-009-AdvancedMapping/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-010-generator1/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

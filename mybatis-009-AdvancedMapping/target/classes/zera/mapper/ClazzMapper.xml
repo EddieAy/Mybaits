@@ -5,4 +5,40 @@
 <!--namespace先随意写一个-->
 <mapper namespace="zera.mapper.ClazzMapper">
 
+<!--    <resultMap id="classResultMap" type="Clazz">-->
+<!--        <result property="classId" column="class_id"/>-->
+<!--        <result property="className" column="class_name"/>-->
+<!--    </resultMap>-->
+
+<!--    <select id="selectByClassId" resultMap="classResultMap">-->
+<!--        select * from t_class where class_id = #{classId}-->
+<!--    </select>-->
+    <select id="selectByClassId" resultType="Clazz">
+        select * from t_class where class_id = #{classId}
+    </select>
+
+    <resultMap id="collectionMap" type="Clazz">
+        <id property="classId" column="class_id"/>
+        <result property="className" column="class_name"/>
+        <collection property="stus" ofType="Student">
+            <id property="stuId" column="stu_id"/>
+            <result property="stuName" column="stu_name"/>
+        </collection>
+    </resultMap>
+    
+    <select id="selectByCollection" resultMap="collectionMap">
+        select c.class_id,c.class_name,s.stu_id,s.stu_name from t_class c left join t_stu s on c.class_id = s.class_id where c.class_id = #{classId}
+    </select>
+    
+    <resultMap id="map2" type="Clazz">
+        <id property="classId" column="class_id"/>
+        <result property="className" column="class_name"/>
+        <collection property="stus" select="zera.mapper.StudentMapper.selectByClassId" column="class_id"/>
+    </resultMap>
+    
+    <select id="selectByClazzDis" resultMap="map2">
+        select class_name,class_id from t_class where class_id = #{class_id}
+    </select>
+
+
 </mapper>

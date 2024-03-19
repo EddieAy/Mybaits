@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zera.mybatis.mapper.CarMapper">
+  <resultMap id="BaseResultMap" type="zera.mybatis.pojo.Car">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="carNum" jdbcType="VARCHAR" property="carnum" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="guidePrice" jdbcType="DECIMAL" property="guideprice" />
+    <result column="produceTime" jdbcType="CHAR" property="producetime" />
+    <result column="carType" jdbcType="VARCHAR" property="cartype" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_car
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="zera.mybatis.pojo.Car">
+    insert into t_car (id, carNum, brand, 
+      guidePrice, produceTime, carType
+      )
+    values (#{id,jdbcType=BIGINT}, #{carnum,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{guideprice,jdbcType=DECIMAL}, #{producetime,jdbcType=CHAR}, #{cartype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="zera.mybatis.pojo.Car">
+    update t_car
+    set carNum = #{carnum,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      guidePrice = #{guideprice,jdbcType=DECIMAL},
+      produceTime = #{producetime,jdbcType=CHAR},
+      carType = #{cartype,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, carNum, brand, guidePrice, produceTime, carType
+    from t_car
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, carNum, brand, guidePrice, produceTime, carType
+    from t_car
+  </select>
+</mapper>

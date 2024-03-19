@@ -5,17 +5,29 @@
 <!--namespace先随意写一个-->
 <mapper namespace="zera.mapper.StudentMapper">
 
+<!--    <cache/>-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+
     <resultMap id="studentResultMap" type="Student">
         <id property="stuId" column="stu_id"/>
         <result property="stuName" column="stu_name"/>
         <result property="clazz.classId" column="class_id"/>
         <result property="clazz.className" column="class_name"/>
     </resultMap>
+
     <select id="selectById" resultMap="studentResultMap">
         select s.stu_id,s.stu_name,c.class_id,c.class_name
             from t_stu s left join t_class c on s.class_id = c.class_id
         where s.stu_id = #{stuId}
     </select>
+
+    <select id="selectByIdCache" resultMap="studentResultMap">
+        select s.stu_id,s.stu_name,c.class_id,c.class_name
+        from t_stu s left join t_class c on s.class_id = c.class_id
+        where s.stu_id = #{stuId}
+    </select>
+
 
     <resultMap id="studentResultMapAssociation" type="Student">
         <id property="stuId" column="stu_id"/>
@@ -31,4 +43,23 @@
         where s.stu_id = #{stuId}
     </select>
 
+    <resultMap id="studentResultMapDis" type="Student">
+        <id property="stuId" column="stu_id"/>
+        <result property="stuName" column="stu_name"/>
+        <association property="clazz"
+                     select="zera.mapper.ClazzMapper.selectByClassId"
+                     column="qwer"
+                     fetchType="eager"/>
+    </resultMap>
+    <select id="selectByStudentId2" resultMap="studentResultMapDis">
+        select stu_name,stu_id,class_id as 'qwer' from t_stu where stu_id = #{id}
+    </select>
+
+    <select id="selectByClassId" resultType="Student">
+        select * from t_stu where class_id = #{classId}
+    </select>
+
 </mapper>
+<!--        select s.stu_name,s.stu_id,s.clazz from t_stu s where s.stu_id = #{id}-->
+
+<!--        select s.* from t_stu s where s.stu_id = #{id}-->
